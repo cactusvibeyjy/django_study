@@ -1,5 +1,7 @@
 from datetime import datetime
 from django.db import models
+from regex import F
+from sqlalchemy import PrimaryKeyConstraint
 
 # Create your models here.
 class Board(models.Model):
@@ -18,4 +20,11 @@ class Board(models.Model):
 
     def down_up(self):
         self.down += 1
+
+class comment(models.Model):
+    idx = models.AutoField(primary_key = True) 
+    board_idx=models.IntegerField(null=False)
+    writer = models.CharField(null=False, max_length =50)
+    content = models.TextField(null=False)
+    post_date= models.DateTimeField(default=datetime.now, blank=True)
     
