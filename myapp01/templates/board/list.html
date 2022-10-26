@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="{% static 'jquery-3.6.1.min.js' %}"></script>
+    
 </head>
 <body>
     <h3>LIST({{boardCount}}) /<a href ="/write_form/">추가하기</a></h3>
@@ -18,7 +19,7 @@
             <option value="all">제목+작성자+내용</option>
             <script>
                 document.getElementById("field").value="{{field}}"
-                //${"#field"}.val("{{field}}")
+                //$("#field").val("{{field}}")
             </script>
         </select>
         <input type="text" name="word" placeholder="Search" value={{word}} />

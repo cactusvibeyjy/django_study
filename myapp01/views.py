@@ -8,7 +8,7 @@ from django.http.response import JsonResponse,HttpResponse
 import math
 
 # Create your views here.
-UPLOAD_DIR = 'C:\\djangoStudy\\upload'
+UPLOAD_DIR = 'C:\\djangoStudy\\upload\\'
 #write_form
 def write_form(request):
     return render(request, 'board/write.html')

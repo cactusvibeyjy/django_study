@@ -21,7 +21,7 @@ class Board(models.Model):
     def down_up(self):
         self.down += 1
 
-class comment(models.Model):
+class comment(models.Model):#객체지향이 아님
     idx = models.AutoField(primary_key = True) 
     board_idx=models.IntegerField(null=False)
     writer = models.CharField(null=False, max_length =50)
