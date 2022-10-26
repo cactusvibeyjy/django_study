@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h3>상세보기</h3>
+    <!-- <main class="mb-4"></main>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="container List-container">
+            <div class="row mt-1 header">
+              <h5 class="col-1 board-title">제목</h5>
+              <p class="col-8" style="word-break:break-all;">{{dto.id}}</p>
+              <p class="col-2"> <fmt:formatDate value="${{dto.post_date }}" pattern="yy/MM/dd HH:mm"/></p>
+              <p class="col-1">조회:{{dto.hit}}</p>
+            </div>
+            <div class="board-container">
+              <h5 class="content-title">내용</h5>
+              <p class="content" style="word-break:break-all;">
+                {{dto.content}}
+              </p>
+            </div>
+            <div class="board-footer">
+                <button type="button" class="btn btn-primary update-btn" onclick="">수정</button>
+                <button type="button" class="btn btn-danger delete-btn" id="deleteBoard">삭제</button>
+                <button type="button" class="btn btn-primary list-btn" onclick="location.href='/meblo/board' ">뒤로</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main> -->
+    <!-- <ul class="list-group">
+        <li class="list-group-item">아이디: {{dto.id}}</li>
+        <li class="list-group-item">조회수:{{dto.hit}}</li>
+        <li class="list-group-item">작성자:{{dto.writer}}</li>
+        <li class="list-group-item">제목:{{dto.title}}</li>
+        <li class="list-group-item">내용:{{dto.content}}</li>
+        <li class="list-group-item">date:{{dto.post_date | date:'Y-m-d'}}</li>
+        <li class="list-group-item">file:{{dto.filename}}</li>
+      </ul> -->
+    <!-- id: {{dto.idx}}<br/>
+    hit:{{dto.hit}}<br/>
+    writer:{{dto.writer}}<br/>
+    title:{{dto.title}}<br/>
+    content:{{dto.content}}<br/>
+    date:{{dto.post_date}}<br/>
+    file:{{dto.filename}}<br/><br/> -->
+    <table class="table table-hover">
+        <tr>
+            <th>아이디</th>
+            <td colspan="3">{{dto.id}}</td>
+        </tr>
+        <tr>
+            <th>조회수</th>
+            <td colspan="3">{{dto.hit}}</td>
+        </tr>
+        <tr>
+            <th>작성자</th>
+            <td colspan="3">{{dto.writer}}</td>
+        </tr>
+        <tr>
+            <th>제목</th>
+            <td colspan="3">{{dto.title}}</td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td colspan="3">{{dto.content}}</td>
+        </tr>
+        <tr>
+            <th>date</th>
+            <td colspan="3">{{dto.post_date | date:'Y-m-d'}}</td>
+        </tr>
+        <tr>
+            <th>file</th>
+            <td colspan="3">{{dto.filename}}</td>
+        </tr>
+    </table>
+    <div class="board-footer">
+        <button type="button" class="btn btn-primary update-btn"onclick="location.href='/update_form/{{dto.id}}'">수정</a></button>
+        <button type="button" class="btn btn-danger delete-btn" onclick="location.href='/delete/{{dto.id}}'">삭제</button>
+        <button type="button" class="btn btn-primary list-btn" onclick="location.href='/list' ">뒤로</button>
+      </div>
+    </div>
+</div>
+
+
+
+{% endblock%}
