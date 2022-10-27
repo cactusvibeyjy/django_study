@@ -1,0 +1,20 @@
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{field.label}}</strong>
+                {{error}}
+            </div>
+        {% endfor %}
+
+        {% for error in form.non_field_errors %} <!-- 입력하지 않은 경우 출력 -->
+            <div class="alert alert-danger">
+                <strong>{{error}}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+
+
+{% endif %}
