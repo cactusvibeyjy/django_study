@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    
+    <h3>수정하기</h3>
+    <form action="/update/" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="id">아이디:</label>
+          <input type="text" class="form-control" id="id" name="id" value = {{dto.id}} readonly=readonly>
+        </div>
+        
+        <div class="form-group">
+            <label for="writer">writer:</label>
+            <input type="text" class="form-control" id="writer" value ={{dto.writer}} name="writer">
+          </div>
+        <div class="form-group">
+            <label for="title">title:</label>
+            <input type="text" class="form-control" id="title" value={{dto.title}} name="title">
+        </div>
+        <div class="form-group">
+          <label for="content">content:</label>
+          <textarea class="form-control"put  id="content" rows="5" name="content" rows="5" cols="50">{{dto.content}}</textarea>
+        </div>
+        <div class="form-group">
+          <label for="file">file:</label>
+          <input type="file" class="form-control"put  id="file" name="file">{{dto.filename}}
+        </div>
+        
+        
+        <button type="submit" class="btn btn-primary">수정</button>
+        <button type="button" class="btn btn-warning"><a href="/list">취소</button>
+        </a></form>
+    <!-- <form action="/update/" method="post" enctype="multipart/form-data">
+        
+        id:<input type ="text" name="id" value = {{dto.id}} readonly=readonly><br/>
+        writer: <input type="text" name ="writer" value ={{dto.writer}} ><br/>
+        title: <input type="text" name ="title" value={{dto.title}}><br/>
+        content: <textarea name ="content" rows="5" cols="50">{{dto.content}}</textarea><br/>
+        file: <input type="file" name ="file">{{dto.filename}}<br/>
+        <input type="submit" value ="수정"><br/>
+        
+        <a href="/list">리스트로</a>
+    </form> -->
+</div>
+{% endblock%}
