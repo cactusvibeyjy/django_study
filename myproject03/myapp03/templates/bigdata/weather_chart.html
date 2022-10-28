@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container my-3">
+  <img src="{% get_static_prefix %}images/{{img_data.plot}}" width="600" hegiht="400">
+  <img src="{% get_static_prefix %}images/{{img_data.bar}}" width="600" hegiht="400">
+  <img src="{% get_static_prefix %}images/{{img_data.pie}}" width="600" hegiht="400">
+
+
+</div>
+<!-- <div class="container">
+    <table class="table table-hover">
+      
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>도시</th>
+            <th>날짜</th>
+            <th>날씨</th>
+            <th>최저기온</th>
+            <th>최고기온</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for weather in forecast_data%}
+            <tr>
+                
+                <td>{{weather.city}}</td>
+                <td>{{weather.wf}}</td>
+                <td>{{weather.tmef}}</td>
+                <td>{{weather.tmn}}°C</td>
+                <td>{{weather.tmx}}°C</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> -->
+</div>
+{% endblock %}

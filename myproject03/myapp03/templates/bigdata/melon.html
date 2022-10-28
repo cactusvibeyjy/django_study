@@ -4,7 +4,27 @@
 
 
 <div class="container">
-    melon
-
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th></th>
+            <th>곡명</th>
+            <th>가수</th>
+            <th>앨범</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for song in datas%}
+            <tr>
+                <td>{{song.rank}}</td>
+                <td>{{song.imgs}}</td>
+                <td>{{song.name}}</td>
+                <td>{{song.singer}}</td>
+                <td>{{song.album}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock %}

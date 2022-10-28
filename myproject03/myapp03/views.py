@@ -1,27 +1,52 @@
 import math
 from django.http import JsonResponse
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
-from myapp03.models import Board, comment
+from myapp03.models import Board, Forecast, comment
 import urllib.parse
 from django.db.models import Q
 from django.http.response import JsonResponse,HttpResponse
 from .forms import UserForm
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from myapp03 import bigdataProcess
-
+from django.db.models.aggregates import Count
+import pandas as pd
 # Create your views here.
 
 UPLOAD_DIR = 'C:\\djangoStudy\\upload\\'
 #노래순위 가져오기 (크롤링)
 def melon(request):
-    bigdataProcess.melon_crawling()
-    return render(request, "bigdata/melon.html")
+    datas=[]
+    bigdataProcess.melon_crawling(datas)
+    return render(request, "bigdata/melon.html",{'datas': datas})
+
+#날씨정보 가져오기
+def weather(request):
+    last_date=Forecast.objects.values('tmef').order_by('-tmef')[:1]
+    print('last_date:' , len(last_date))
+    forecast={}
+    bigdataProcess.weather_crawling(last_date,forecast)
+    
+    for i in forecast:
+            for j in forecast[i]:
+                dto = Forecast(city=i, tmef=j[0],wf=j[1],tmn=j[2],tmx=j[3])
+                dto.save()
+    forecast_data = Forecast.objects.all()
+    result=Forecast.objects.filter(city='부산')
+    result1=Forecast.objects.filter(city='부산').values('wf').annotate(dcount =Count('wf')).values("dcount", "wf")
+    print("result1 query : ", str(result1.query))
+    df=pd.DataFrame(result1)
+    print("df query : ", df.dcount)
+    image_dic= bigdataProcess.weather_make_chart(result, df.wf, df.dcount)
+
+    return render(request,"bigdata/weather_chart.html", {'img_data' : image_dic})
     
 
 def base(request):
     return render(request, 'base.html')
-
+#로그인한 유저만 글쓰기
+@login_required(login_url='/login/')
 def write_form(request):
     return render(request, 'board/insert.html')
 
@@ -38,7 +63,7 @@ def insert(request):
         for chunk in file.chunks():
             fp.write(chunk)
         fp.close()
-    dto = Board(writer=request.POST['writer'],
+    dto = Board(writer=request.user,
         title = request.POST['title'],
         content = request.POST['content'],
         filename=fname,
@@ -164,7 +189,7 @@ def update(request):
             fp.write(chunk)
         fp.close()
     update_dto = Board(id,
-        writer=request.POST['writer'],
+        writer=request.user,
         title = request.POST['title'],
         content = request.POST['content'],
         filename=fname,
@@ -182,11 +207,13 @@ def delete(request, board_id):
 
 #comment_insert
 @csrf_exempt
+@login_required(login_url=('/login/'))
 def comment_insert(request):
     id=request.POST['id']
+    board = get_object_or_404(Board, pk=id)
     dto=comment(board_id= id,
-                writer= 'aa',
-                content=request.POST['content'])
+                writer= request.user,
+                content=request.POST['content'],board=board)
     dto.save()
    
     return redirect("/detail/"+id)
