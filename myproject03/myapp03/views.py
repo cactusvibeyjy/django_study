@@ -1,4 +1,6 @@
+import json
 import math
+from bs4 import BeautifulSoup
 from django.http import JsonResponse
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
@@ -12,6 +14,14 @@ from django.contrib.auth.decorators import login_required
 from myapp03 import bigdataProcess
 from django.db.models.aggregates import Count
 import pandas as pd
+from matplotlib import font_manager, rc
+import os
+import matplotlib.pyplot as plt 
+from konlpy.tag import Okt
+from collections import Counter
+import numpy as np
+from myproject03.settings import STATIC_DIR, TEMPLATE_DIR
+
 # Create your views here.
 
 UPLOAD_DIR = 'C:\\djangoStudy\\upload\\'
@@ -41,7 +51,56 @@ def weather(request):
     image_dic= bigdataProcess.weather_make_chart(result, df.wf, df.dcount)
 
     return render(request,"bigdata/weather_chart.html", {'img_data' : image_dic})
+
+#지도 좌표 띄우기
+
+def map(request):
+    bigdataProcess.map(request)
+
+    return render(request, "bigdata/map.html")
+
+def wordcloud(request):
+    w_path ='C:\\djangoStudy\\myproject03\\myproject03\\data\\'
     
+    
+    data = json.loads(open(w_path +'4차 산업혁명.json', 'r', encoding = 'utf-8').read())
+    bigdataProcess.make_wordCloud(data)
+
+    return render(request, "bigdata/wordcloud.html", {"img_data" : 'kor_wordCloud.png'})
+
+#영화리뷰평점 그래프 시각화   
+def movierate(request):
+    
+    f = open('./movie_reviews.txt', 'w', encoding='UTF-8')
+#-- 500페이지까지 크롤링
+    for no in range(1, 50):
+        url = 'https://movie.naver.com/movie/point/af/list.naver?&page=%d' % no
+        html = urllib.request.urlopen(url)
+        soup = BeautifulSoup(html, 'html.parser')
+        # print(soup)
+        reviews = soup.select('tbody > tr > td.title')
+        for rev in reviews: 
+            rev_lst = []
+            title = rev.select_one('a.movie').text.strip()
+            score = rev.select_one('div.list_netizen_score > em').text.strip()
+            comment = rev.select_one('br').next_sibling.strip()
+            
+            #-- 긍정/부정 리뷰 레이블 설정
+            if int(score) >= 8 :
+                label = 1   #-- 긍정 리뷰 (8~10점)
+            elif int(score) <= 4 :
+                label = 0   #-- 부정 리뷰 (0~4점)
+            else :
+                label = 2   
+            
+            f.write(f'{title}\t{score}\t{comment}\t{label}\n')
+    f.close()
+    data = pd.read_csv('C:/jupyterAnaconda/movie_reviews.txt', delimiter = '\t', names=['title', 'score', 'comment', 'label'])
+    bigdataProcess.movierate(data)
+    return render(request,"bigdata/movie_rate.html", {'img_data' :'movie_rate_bar_graph.png'})
+
+   
+
 
 def base(request):
     return render(request, 'base.html')

@@ -40,4 +40,8 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('melon/', views.melon),
     path('weather/', views.weather),
+    path('map/', views.map),
+    path('wordcloud/', views.wordcloud),
+
+    path('movierate/', views.movierate),
 ]

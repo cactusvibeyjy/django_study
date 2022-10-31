@@ -117,6 +117,7 @@ USE_TZ = False
 
 STATIC_URL = "/static/"
 STATIC_DIR =os.path.join(BASE_DIR, 'static')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'myapp03/templates')
 STATICFILES_DIRS = [
     BASE_DIR / 'static', STATIC_DIR
     ]

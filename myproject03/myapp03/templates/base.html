@@ -11,10 +11,10 @@
     <script src="{% static 'jquery-3.6.1.min.js' %}"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-2">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/base">HOME</a>
+            <a class="nav-link" href="/list">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/list">게시판</a>
@@ -30,7 +30,13 @@
             <a class="nav-link" href="/weather">날씨정보</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">다음거</a>
+            <a class="nav-link" href="/map">지도</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/wordcloud">워드클라우드</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/movierate">영화평점 Bar 시각화</a>
           </li>
           
         </ul>

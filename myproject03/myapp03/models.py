@@ -33,3 +33,5 @@ class Forecast(models.Model):
     wf = models.TextField(null=True)
     tmn = models.IntegerField(default=0)
     tmx = models.IntegerField(default=0)
+
+    

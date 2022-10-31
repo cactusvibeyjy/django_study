@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+
+
+<html>
+	<head><meta http-equiv=Content-Type content=text/html; charset=EUC-KR>
+
+ <style> 
+ table {font-size:11px; font-family:굴림;} 
+  .title_center 
+	{mso-style-parent:style0; 
+	text-align:center; 
+	vertical-align:middle; 
+	white-space:normal;} 
+  .currency 
+	{mso-style-parent:style0; 
+ 	mso-number-format:"\#\,\#\#0\.00_\)\;\[Red\]\\\(\#\,\#\#0\.00\\\)"; 
+	border:.5pt solid black; 
+	white-space:normal;} 
+   .Format_Y1 
+	{mso-style-parent:style0; 
+	mso-number-format:"yyyy\0022\/\0022m\0022\/\0022d\;\@"; 
+	text-align:center; 
+	border:.5pt solid black; 
+ 	white-space:normal;}   .Format_Y2 
+	{mso-style-parent:style0; 
+	mso-number-format:"yyyy\/mm\;\@"; 
+	text-align:center; 
+	border:.5pt solid black; 
+ 	white-space:normal;}  td {mso-number-format:"\@";  }   .Format_number 
+  	{mso-style-parent:style0; 
+   	mso-number-format:"\@";   
+   	text-align:center;        
+   	vertical-align:middle;}	  
+  .Format_T1 
+	{mso-style-parent:style0; 
+	mso-number-format:"hh\:mm\:ss\;\@"; 
+	text-align:center; 
+	border:.5pt solid black; 
+ 	white-space:normal;} 
+  .Format_money 
+	{mso-number-format:"\#\,\#\#0_ ";   	text-align:right;        
+   	vertical-align:middle;}	  
+ </style>
+
+</head>
+	<body><table border=1><tr style='height:25px' class='title_center'><td rowspan=2 style='white-space:nowrap'><strong>일자</strong></td><td colspan=2 style='white-space:nowrap'><strong>송금</strong></td><td colspan=2 style='white-space:nowrap'><strong>현찰</strong></td><td rowspan=2 style='white-space:nowrap'><strong>매매기준율<br />(전일대비)</strong></td><td rowspan=2 style='white-space:nowrap'><strong>기준환율</strong></td><td rowspan=2 style='white-space:nowrap'><strong>대미환산율</strong></td></tr><tr><td nowrap><strong>보내실때</strong></td><td nowrap><strong>받으실때</strong></td><td nowrap><strong>사실때</strong></td><td nowrap><strong>파실때</strong></td></tr><tr align=center><td class='first' >2022.10.31</td><td >1,435.50</td><td >1,408.10</td><td >1,446.68</td><td >1,396.92</td><td >1,421.80<br/><span class='fall'>하락</span>-3.70</td><td >1,419.30</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.28</td><td >1,439.30</td><td >1,411.70</td><td >1,450.44</td><td >1,400.56</td><td >1,425.50</td><td >1,418.10</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.27</td><td >1,439.30</td><td >1,411.70</td><td >1,450.44</td><td >1,400.56</td><td >1,425.50<br/><span  class='rise'>상승</span>5.50</td><td >1,428.20</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.26</td><td >1,433.70</td><td >1,406.30</td><td >1,444.85</td><td >1,395.15</td><td >1,420.00<br/><span class='fall'>하락</span>-19.00</td><td >1,436.50</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.25</td><td >1,452.90</td><td >1,425.10</td><td >1,464.18</td><td >1,413.82</td><td >1,439.00<br/><span class='fall'>하락</span>-4.00</td><td >1,436.60</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.24</td><td >1,456.90</td><td >1,429.10</td><td >1,468.25</td><td >1,417.75</td><td >1,443.00<br/><span  class='rise'>상승</span>3.00</td><td >1,436.60</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.21</td><td >1,453.90</td><td >1,426.10</td><td >1,465.20</td><td >1,414.80</td><td >1,440.00<br/><span  class='rise'>상승</span>11.50</td><td >1,431.70</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.20</td><td >1,442.30</td><td >1,414.70</td><td >1,453.49</td><td >1,403.51</td><td >1,428.50<br/><span class='fall'>하락</span>-7.50</td><td >1,420.60</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.19</td><td >1,449.90</td><td >1,422.10</td><td >1,461.13</td><td >1,410.87</td><td >1,436.00<br/><span  class='rise'>상승</span>9.50</td><td >1,425.60</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.18</td><td >1,440.30</td><td >1,412.70</td><td >1,451.46</td><td >1,401.54</td><td >1,426.50<br/><span class='fall'>하락</span>-12.00</td><td >1,436.60</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.17</td><td >1,452.40</td><td >1,424.60</td><td >1,463.67</td><td >1,413.33</td><td >1,438.50<br/><span class='fall'>하락</span>-1.50</td><td >1,428.90</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.14</td><td >1,453.90</td><td >1,426.10</td><td >1,465.20</td><td >1,414.80</td><td >1,440.00<br/><span class='fall'>하락</span>-5.00</td><td >1,427.00</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.13</td><td >1,459.00</td><td >1,431.00</td><td >1,470.28</td><td >1,419.72</td><td >1,445.00<br/><span  class='rise'>상승</span>13.00</td><td >1,430.40</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.12</td><td >1,445.80</td><td >1,418.20</td><td >1,457.06</td><td >1,406.94</td><td >1,432.00<br/><span class='fall'>하락</span>-2.00</td><td >1,433.50</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.11</td><td >1,447.90</td><td >1,420.10</td><td >1,459.09</td><td >1,408.91</td><td >1,434.00<br/><span  class='rise'>상승</span>5.00</td><td >1,410.30</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.07</td><td >1,442.80</td><td >1,415.20</td><td >1,454.00</td><td >1,404.00</td><td >1,429.00<br/><span  class='rise'>상승</span>20.00</td><td >1,404.20</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.06</td><td >1,422.60</td><td >1,395.40</td><td >1,433.65</td><td >1,384.35</td><td >1,409.00<br/><span class='fall'>하락</span>-14.00</td><td >1,419.10</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.05</td><td >1,436.80</td><td >1,409.20</td><td >1,447.90</td><td >1,398.10</td><td >1,423.00<br/><span class='fall'>하락</span>-7.00</td><td >1,431.20</td><td >1.0000</td></tr><tr align=center><td class='first' >2022.10.04</td><td >1,443.80</td><td >1,416.20</td><td >1,455.02</td><td >1,404.98</td><td >1,430.00</td><td >1,432.10</td><td >1.0000</td></tr></table></body>
+</html>
+ 
